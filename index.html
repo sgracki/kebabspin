@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+		div.a {
+		width: 100px;
+		height:100px;
+		 content:url(./img/mc-hammer.gif);
+		position:fixed;
+		    
+}
+	#image{
+		margin:100px 100px;
+		position: absolute;
+		width: 20%;
+		height:20%;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	#results{
+		margin:100px 100px;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.modal-div {
+		position: absolute;
+		padding: 10px;
+		max-width: 200px;
+		background-color: #fff;
+	}
+		body {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+	}
+</style>
+	<title>kebab spin</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<img src="img/kebab.png" id="image">
+</head>
+<body>
+<div style="display:none">
+<audio controls autoplay>
+  <source src="http://royalwap.net/128-122158/Tunak%20Tunak%20Tun.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+<script type="text/javascript" src="./js/dancingturek.js"></script>
+</div>
+<div class="content">
+<script type="text/javascript"">
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+$(function(){ setInterval(rotation, 30000); });
+
+var rotation = function () {
+	var notifyPositions = [{x:0,y:0}], x, y;
+
+   	$("#image").rotate({
+      angle:0, 
+      animateTo:360,
+      callback: rotation,
+      easing: function (x,t,b,c,d){        // t: current time, b: begInnIng value, c: change In value, d: duration
+          return c*(t/d)+b;
+      }
+
+	});
+	rotation.calledTimes++;
+	var cars = [
+	   	null,
+	    "JEDZIEMY Z TYM KEBSEM!",
+	    "TEN SŁODKI KEBAB, CO OTUMANIA MI ZMYSŁY",
+	    "KUPUJĄC KEBABA OSIEDLASZ ROZKOSZ W SWOIM BRZUSZKU!",
+	    "KOCHAM TEN STAN, KIEDY MAM OSTRY SOS NA JĘZORZE",
+	    "MOC, ENERGIA, KAPSAICYNA!",
+	    "DID YOU KNOW THAT KEBAB IN POLISH IS ZAJEBISTEŻAREŁKO",
+	    "YOU SPIN ME RIGHT ROUND, BABY RIGH ROUND LIKE A KEBAB, BABY RIGHT ROUND ROUND ROUND",
+	    "DOBRY KEBAB TO JEST TO!"
+	];
+
+	var generateUniquePos = function(notifyPositions, callback) {
+		notifyPositions.forEach(function(xy, index) {
+			if(randomIntFromInterval(0, window.innerWidth-100) > xy.x + 100 || randomIntFromInterval(0, window.innerWidth-100) < xy.x - 100) {
+				if(!x) {
+					var x = randomIntFromInterval(0, window.innerWidth-100);
+				}
+			}
+			if(randomIntFromInterval(0, window.innerHeight-100) > xy.y + 100 || randomIntFromInterval(0, window.innerHeight-100) < xy.y - 100) {
+				if(!y) {
+					var y = randomIntFromInterval(0, window.innerHeight - 100);
+				}
+			}
+			if(index == notifyPositions.length - 1) {
+				console.log(x + ' ' + y);
+				callback(x, y);
+				notifyPositions.push(x, y)
+			}
+		})
+	}
+
+	if (rotation.calledTimes % 10 == 0) {
+		var div = document.createElement("DIV");
+		div.className += " modal-div";
+		generateUniquePos(notifyPositions, function(x, y) {
+			div.style.bottom = y + 'px';
+			div.style.left = x + 'px';
+		});
+		
+		div.innerHTML = cars[rotation.calledTimes/10-1];
+		if(rotation.calledTimes/10-1 && cars[rotation.calledTimes/10-1].length > 0) {
+			document.body.appendChild(div);
+		}
+    	
+	}
+   
+
+   	$('.results').html( "ILOŚĆ OBROTÓW KEBABA " + rotation.calledTimes);
+}
+
+rotation();
+rotation.calledTimes = 0;
+
+
+</script>
+<div class="results"></div>
+
+<div class="a">
+</div>
+</div>
+
+
+
+</body>
+</html>
