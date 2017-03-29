@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+
 <style type="text/css">
+.center-div
+{
+	  position: absolute;
+	  margin: auto;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  width: 100px;
+	  height: 100px;
+	  background-color: #ccc;
+	  border-radius: 3px;
+},
+.center{
+	  display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-box-direction: normal;
+	    -moz-box-direction: normal;
+	    -webkit-box-orient: horizontal;
+	    -moz-box-orient: horizontal;
+	    -webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	    -webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	    flex-wrap: nowrap;
+	    -webkit-box-pack: center;
+	    -moz-box-pack: center;
+	    -webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    -webkit-align-content: stretch;
+	    -ms-flex-line-pack: stretch;
+	    align-content: stretch;
+	    -webkit-box-align: center;
+	    -moz-box-align: center;
+	    -webkit-align-items: center;
+	    -ms-flex-align: center;
+	    align-items: center;
+}
 		div.a {
-		width: 10%;
-		height: 10%;
+		width: 100px;
+		height:100px;
 		 content:url(./img/mc-hammer.gif);
 		position:fixed;
 		    
@@ -46,17 +89,8 @@
 	<title>kebab spin</title>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <img src="img/kebab.png" id="image">
-
-  <!-- Compiled and minified CSS -->
-
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
 </head>
 <body>
-</div>
-
-<div class="a">
 <div style="display:none">
 <audio controls autoplay>
   <source src="http://royalwap.net/128-122158/Tunak%20Tunak%20Tun.mp3" type="audio/mpeg">
@@ -64,8 +98,11 @@
 </audio>
 <script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
 <script type="text/javascript" src="./js/dancingturek.js"></script>
-
 </div>
+
+<div class="a">
+</div>
+<div class="center-div">
 <div class="content">
 <script type="text/javascript"">
 function randomIntFromInterval(min,max)
@@ -144,30 +181,11 @@ rotation.calledTimes = 0;
 
 </script>
 
-
-
+<div class="results"></div>
 
 </div>
 
-
-     <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                                  <div class="results" align="center"></div>
-              </div>
-              <div class="col l4 offset-l2 s12">
-
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2017 Bartingo
-            </div>
-          </div>
-        </footer>
+</div>
 
 </body>
 </html>
